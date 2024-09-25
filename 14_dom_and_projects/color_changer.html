@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background color changer</title>
+</head>
+<style>
+    .button {
+        padding: 30px;
+        margin: 20px;
+        border: 2px solid#fff;
+    }
+</style>
+<body>
+    <div style="text-align: center;">
+        <h1 style="padding: 20px; color: #e128a4;">Color Scheme Changer</h1>
+        <div>
+            <span class="button" id="grey" style="background-color: grey;"></span>
+            <span class="button" id="red" style="background-color: red;"></span>
+            <span class="button" id="green" style="background-color: green;"></span>
+            <span class="button" id="yellow" style="background-color: yellow;"></span>
+        </div>
+        <h4 style="padding: 20px; color: #17aee0;">Try to change color the background-color by clocking above colors</h4>
+    </div>
+</body>
+<script>
+    const buttons = document.querySelectorAll('.button')
+    const body = document.querySelector('body')
+
+    buttons.forEach(function (button) {
+        console.log(button);
+        button.addEventListener('click', function(e) {
+            console.log(e);
+            console.log(e.target);
+            if(e.target.id == 'grey'){
+                body.style.backgroundColor = e.target.id
+            }
+            if(e.target.id == 'red'){
+                body.style.backgroundColor = e.target.id
+            }
+            if(e.target.id == 'green'){
+                body.style.backgroundColor = e.target.id
+            }
+            if(e.target.id == 'yellow'){
+                body.style.backgroundColor = e.target.id
+            }
+        })
+    })
+</script>
+</html>

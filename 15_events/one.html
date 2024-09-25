@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    <button id="btn">Click me</button>
+    <h1>setTimeout()</h1>
+    <h4>Learning Javascript is fun.....</h4>
+    <button class="stop">Stop</button>
+
+    <h1>setInterval()</h1>
+    <h4 id="randomNum"></h4>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //Important topics to learn in Events
+
+    // type, timestamp, preventDefault
+    // terget. toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkay, ctrlkey, shiftkay, keycode 
+
+
+    //First Method
+    // const button = document.getElementById('btn').onclick = ()=>{
+    //     alert("Clicked")
+    // }
+
+    
+    //Second Method using addEventListener
+    document.getElementById('btn').addEventListener('click', (e) => {
+        alert("clicked")
+    })
+
+    //SetTimeout
+    const changeMe = setTimeout(() => {
+        console.log("Hello Rohit...");
+        document.querySelector('h1').innerHTML = "Master Javascript !"
+    }, 2000);
+
+    // clearTimeOut()  --> clear setTimeout
+    //clearTimeout()
+    document.querySelector('.stop').addEventListener('click', (e) => {
+        clearTimeout(changeMe)
+        console.log("Stopped");
+    })
+
+
+    //setInterval
+    const startInterval = function() {
+        const displayNum = document.querySelector('#randomNum')
+        displayNum.innerHTML = parseInt(Math.random()*100 + 1)
+    }
+
+    const intervalId = setInterval(startInterval,1000)
+    //Start Interval after stopping
+    document.querySelector('#start').addEventListener('click',() => {
+        setInterval(startInterval, 1000)
+    })
+    //Stop Interval
+    document.querySelector('#stop').addEventListener('click', () => {
+        clearInterval(intervalId)
+    })
+
+   
+</script>
+</html>
